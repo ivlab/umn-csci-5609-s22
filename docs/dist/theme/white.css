@@ -355,3 +355,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     background-color: var(--r-background-color);
   }
 }
+
+/* 5609 stuff */
+
+footer {
+	color: gray;
+  font-size: small;
+  font-style: italic;
+}

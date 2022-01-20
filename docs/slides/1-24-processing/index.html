@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>1/24: Processing - CSCI 5609</title>
+
+  <link rel="stylesheet" href="../../dist/reset.css">
+  <link rel="stylesheet" href="../../dist/reveal.css">
+  <link rel="stylesheet" href="../../dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2>Hands-On: Making a Bar Chart in Processing</h2>
+        <footer>CSCI 5609: Visualization | Bridger Herman</footer>
+      </section>
+
+      <section>
+        <h2>Announcements</h2>
+        <ul>
+          <li><strong>A1: Bar/Glyph Charts in Processing</strong> is released</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Some assumptions</h2>
+        <ul>
+          <li>You may not be an experienced Processing/Java programmer</li>
+          <li>You may not be a visualization expert (yet!)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Where we're going today</h2>
+      </section>
+
+      <section>
+        <h2>By the end of class, you should be able to:</h2>
+        <ul>
+          <li>Describe and use Processing core functionality (sketch canvas, colors, <code>setup()</code>, <code>draw()</code>)</li>
+          <li>Draw some procedural graphics (e.g., lines, rectangles, text)</li>
+          <li>Use these graphics to make a simple bar chart</li>
+          <li>Utilize remapping / normalization for data values</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Processing Canvas</h2>
+        <ul>
+          <li>All units are in <strong>pixels</strong>!</li>
+          <li>Described from <strong>top left</strong></li>
+        </ul>
+        <img src="./canvas.svg" alt="">
+      </section>
+
+      <section>
+        <h2>Typical Processing Sketch</h2>
+          <pre class="java"><code data-trim data-noescape>
+            // Global constants, helper functions, etc. at the top
+
+            setup() {
+              // Runs ONCE when your sketch starts up
+            }
+
+            draw() {
+              // Runs EVERY FRAME
+              // This is the "main loop" of your graphics program
+            }
+          </code></pre>
+      </section>
+
+      <section>
+        <h2>Drawing Shapes</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <p>Drawing a rectangle like this:</p>
+            <pre class="java"><code data-trim data-noescape>
+              void setup() {
+                // Set the canvas size
+                size(200, 100);
+                // Draw a 50 x 40 rectangle
+                rect(100, 30, 50, 40);
+              }
+            </code></pre>
+            <p class="fragment"><em><code>circle()</code>, <code>line()</code>, and more - <a href="https://processing.org/reference/#shape">see Processing docs</a></em></p>
+          </div>
+          <div class="eight wide column">
+            <img src="./canvas.svg" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>What about color?</h2>
+          <pre class="java"><code data-trim data-noescape>
+            void setup() {
+              // Set the canvas size
+              size(200, 100);
+
+              // Pick a color (reddish) - uses 0-255 integers
+              color red = color(244, 147, 147);
+
+              // Fill color
+              fill(red);
+              // Stroke (outline) color
+              stroke(red);
+
+              // Draw a 50 x 40 rectangle
+              rect(100, 30, 50, 40);
+            }
+          </code></pre>
+      </section>
+
+      <section>
+        <h2>Basics: Putting it together</h2>
+        <p>Let's make something like this, together:</p>
+        <img src="./shapes.png" alt="">
+      </section>
+
+      <section>
+        <h2>Problems with this approach?</h2>
+          <pre class="java"><code data-trim data-noescape>
+    rect(0, height, barWidth, -100);
+    rect(width * 0.2, height, barWidth, -150);
+    rect(width * 0.4, height, barWidth, -500);
+    rect(width * 0.6, height, barWidth, -250);
+    rect(width * 0.8, height, barWidth, 0);
+          </code></pre>
+          <ul>
+            <li class="fragment">Data values are hardcoded...</li>
+            <li class="fragment">...and they're in pixels!!</li>
+          </ul>
+      </section>
+
+      <section>
+        <h2>Solution: Remap / Normalize</h2>
+            <p><strong>Remapping:</strong> one data range to another</p>
+            <img src="./remapping.svg" alt="">
+            <pre class="java fragment"><code data-trim data-noescape>
+                float remap(float value, float min1, float max1, float min2, float max2) {
+                    return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+                }
+            </code></pre>
+            <p class="fragment"><strong>Normalization:</strong> special case of remapping to 0-1</p>
+        <footer>... this is something you will frequently need to think about in vis.</footer>
+      </section>
+
+      <section>
+        <h2>Solution: Data Structure</h2>
+        <pre class="java"><code data-trim data-noescape>
+          float[] values = {1.0, 1.5, 5.0, 2.5, 0.0};
+
+          for (int i = 0; i < values.length; i++) {
+            float normalized = remap(values[i], min(values), max(values), 0, 1);
+          }
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Bar chart: putting it together</h2>
+        <p><em>Suggestion: work in "data space" until you need to draw to screen, then convert to pixels.</em></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../dist/reveal.js"></script>
+  <script src="../../plugin/notes/notes.js"></script>
+  <script src="../../plugin/markdown/markdown.js"></script>
+  <script src="../../plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      transitionSpeed: 'fast',
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>

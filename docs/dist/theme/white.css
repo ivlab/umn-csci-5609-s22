@@ -15,6 +15,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-background-color: #fff;
   --r-main-font: Source Sans Pro, Helvetica, sans-serif;
   --r-main-font-size: 36px;
+  --r-small-font-size: 24px;
   --r-main-color: #222;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
@@ -365,4 +366,18 @@ footer {
 	color: gray;
   font-size: small;
   font-style: italic;
+}
+
+.slide-background.activity {
+  border-left: 50px solid #0E88D5;
+}
+
+li>p.detail {
+  color: gray;
+  font-size: var(--r-small-font-size);
+  margin: 0;
+  margin-left: 1em;
+}
+li>p.detail::before {
+  content: "\000bb\00A0";
 }

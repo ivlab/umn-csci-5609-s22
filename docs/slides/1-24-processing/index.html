@@ -28,6 +28,9 @@
         <h2>Announcements</h2>
         <ul>
           <li><strong>A1: Bar/Glyph Charts in Processing</strong> is released</li>
+          <li>Make sure you <a href="https://discord.gg/S8GekrKp">join the class Discord</a>
+            <p class="detail">I will try to monitor #in-class-questions</p>
+          </li>
         </ul>
       </section>
 
@@ -41,15 +44,17 @@
 
       <section>
         <h2>Where we're going today</h2>
+        <img src="./final.png" alt="">
       </section>
 
       <section>
-        <h2>By the end of class, you should be able to:</h2>
+        <h2>By the end of class today,<br>you should be able to:</h2>
         <ul>
           <li>Describe and use Processing core functionality (sketch canvas, colors, <code>setup()</code>, <code>draw()</code>)</li>
           <li>Draw some procedural graphics (e.g., lines, rectangles, text)</li>
           <li>Use these graphics to make a simple bar chart</li>
           <li>Utilize remapping / normalization for data values</li>
+          <li>Import a Processing library to draw bar charts</li>
         </ul>
       </section>
 
@@ -91,7 +96,7 @@
                 rect(100, 30, 50, 40);
               }
             </code></pre>
-            <p class="fragment"><em><code>circle()</code>, <code>line()</code>, and more - <a href="https://processing.org/reference/#shape">see Processing docs</a></em></p>
+            <p class="fragment"><em><code>circle()</code>, <code>line()</code>, <code>text()</code>...  <a href="https://processing.org/reference/#shape">see docs</a></em></p>
           </div>
           <div class="eight wide column">
             <img src="./canvas.svg" alt="">
@@ -120,10 +125,10 @@
           </code></pre>
       </section>
 
-      <section>
+      <section class="activity">
         <h2>Basics: Putting it together</h2>
         <p>Let's make something like this, together:</p>
-        <img src="./shapes.png" alt="">
+        <img src="./chart.png" alt="">
       </section>
 
       <section>
@@ -165,9 +170,99 @@
         </code></pre>
       </section>
 
-      <section>
+      <section class="activity">
         <h2>Bar chart: putting it together</h2>
         <p><em>Suggestion: work in "data space" until you need to draw to screen, then convert to pixels.</em></p>
+      </section>
+
+      <section>
+        <h2>Great...</h2>
+        <p>So, how do I make a chart like this?</p>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <img src="./a1-stage1-2.png" alt="">
+          </div>
+          <div class="eight wide column">
+            <ul>
+              <li>Axes</li>
+              <li>Nice margins between bars</li>
+              <li>Easy data remapping</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="activity">
+        <h2>Let's use a library</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <p>giCentre Utilities</p>
+            <p><em><a href="https://www.gicentre.net/utils/chart">Read The Docs</a></em></p>
+          </div>
+          <div class="eight wide column">
+            <pre class="java"><code data-trim data-noescape>
+              import org.gicentre.utils.stat.*;
+
+              setup() {
+                float[] DATA = {...};
+                String[] LABELS = {...};
+
+                BarChart c = new BarChart(this);
+                c.setData(DATA);
+                c.setBarLabels(LABELS);
+              }
+            </code></pre>
+          </div>
+        </div>
+        <p class="">Download it: <em>Sketch &rarr; Import Library &rarr; Add Library... &rarr;<br>search for 'giCentre' &rarr; Install</em></p>
+      </section>
+
+      <section class="activity">
+        <h2>Adding titles and legends</h2>
+        <pre class="java"><code data-trim data-noescape>
+    fill(0);
+    textSize(50); //px
+    text("Year vs. Nonsense", width / 2 - 200, 50);
+    textSize(10);
+
+    float legendX = 100;
+    float legendY = 100;
+    fill(240);
+    rect(legendX, legendY, 120, 70);
+    fill(BAR_COLOR);
+    rect(legendX + 10, legendY + 10, 50, 50);
+    fill(0);
+    text("Values", legendX + 70, legendY + 30);
+
+    chart.draw(10, 50, width - 20, height - 60);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>You should be able to:</h2>
+        <ul>
+          <li>Describe and use Processing core functionality (sketch canvas, colors, <code>setup()</code>, <code>draw()</code>)</li>
+          <li>Draw some procedural graphics (e.g., lines, rectangles, text)</li>
+          <li>Use these graphics to make a simple bar chart</li>
+          <li>Utilize remapping / normalization for data values</li>
+          <li>Import a Processing library to draw bar charts</li>
+        </ul>
+      </section>
+
+      <section>
+        <p><a href="https://github.com/ivlab/umn-csci-5609-s22/tree/main/sketch_1_24_processing">Code from today is on GitHub!</a></p>
+        <p>Separated into parts</p>
+        <pre class="java"><code data-trim>
+          if (false) { ... }
+          if (true) { ... }
+        </code></pre>
+        <div class="fragment">
+          <h2>Extras</h2>
+          <ol>
+            <li>Adding interactivity to a bar chart</li>
+            <li>Beyond bar charts</li>
+          </ol>
+        </div>
       </section>
 
     </div>

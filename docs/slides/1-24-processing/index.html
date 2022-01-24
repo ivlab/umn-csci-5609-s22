@@ -134,11 +134,11 @@
       <section>
         <h2>Problems with this approach?</h2>
           <pre class="java"><code data-trim data-noescape>
-    rect(0, height, barWidth, -100);
-    rect(width * 0.2, height, barWidth, -150);
-    rect(width * 0.4, height, barWidth, -500);
-    rect(width * 0.6, height, barWidth, -250);
-    rect(width * 0.8, height, barWidth, 0);
+    rect(0, height, barWidth, -605);
+    rect(width * 0.2, height, barWidth, -288);
+    rect(width * 0.4, height, barWidth, -29);
+    rect(width * 0.6, height, barWidth, -562);
+    rect(width * 0.8, height, barWidth, -360);
           </code></pre>
           <ul>
             <li class="fragment">Data values are hardcoded...</li>
@@ -219,23 +219,7 @@
 
       <section class="activity">
         <h2>Adding titles and legends</h2>
-        <pre class="java"><code data-trim data-noescape>
-    fill(0);
-    textSize(50); //px
-    text("Year vs. Nonsense", width / 2 - 200, 50);
-    textSize(10);
-
-    float legendX = 100;
-    float legendY = 100;
-    fill(240);
-    rect(legendX, legendY, 120, 70);
-    fill(BAR_COLOR);
-    rect(legendX + 10, legendY + 10, 50, 50);
-    fill(0);
-    text("Values", legendX + 70, legendY + 30);
-
-    chart.draw(10, 50, width - 20, height - 60);
-        </code></pre>
+        <p>Use <code>text()</code>, <code>textAlign()</code>, <code>textSize()</code>, and <code>rect()</code> to help create titles and legends</p>
       </section>
 
       <section>

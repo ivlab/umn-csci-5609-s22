@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>1/31: Encodings - CSCI 5609</title>
+
+  <link rel="stylesheet" href="../../dist/reset.css">
+  <link rel="stylesheet" href="../../dist/reveal.css">
+  <link rel="stylesheet" href="../../dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2>Hands-On: Encodings</h2>
+        <footer>CSCI 5609: Visualization | Bridger Herman</footer>
+      </section>
+
+      <section>
+        <h2>Announcements</h2>
+        <ul>
+          <li><strong>A2: Encodings</strong> is released &ndash; more on this later</li>
+          <li><a href="https://discord.gg/S8GekrKp">Join the class Discord</a>
+            <p class="detail">Please make sure your "server name" contains your internet ID and preferred name</p>
+            <p class="detail">We will be using this occasionally in class (today)!</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>By the end of class today,<br>you should be able to:</h2>
+        <ul>
+          <li>Contrast <em>ordered</em> and <em>categorical</em> data, map to visual channels</li>
+          <li>Describe <em>sequential</em> and <em>divergent</em> gradients</li>
+          <li>Explain the difference between <em>binned</em> and <em>continuous</em> gradients</li>
+          <li><strong>Encode data in a variety of ways</strong></li>
+          <li>Fathom what is expected for A2</li>
+        </ul>
+        <footer>This will be a bit different than most class sessions</footer>
+      </section>
+
+      <section>
+        <h2>Ordered vs. Categorical Data</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <p>Ordered (quantitative):</p>
+            <ul>
+              <li>Temperature</li>
+              <li>Parking cost at the Union St. Ramp</li>
+              <li>Year <span class="fragment" data-fragment-index="1">*</span></li>
+            </ul>
+          </div>
+          <div class="eight wide column">
+            <p>Categorical:</p>
+            <ul>
+              <li>Type of fruit</li>
+              <li class="fragment" data-fragment-index="1">Year*</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fragment detail" data-fragment-index="1">*Sometimes useful to bend the rules</p>
+        <footer>Adapted from Munzner, Chs. 2, 10</footer>
+      </section>
+
+      <section>
+        <h2>Gradients</h2>
+        <img src="./colormap-rainbow.png" alt="">
+      </section>
+
+      <section>
+        <h2>Gradients &ndash; Sequential vs. Divergent</h2>
+        <h6>Color gradients (colormaps):</h6>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <p>Sequential (linear)</p>
+          </div>
+          <div class="eight wide column">
+            <p>Divergent</p>
+          </div>
+        </div>
+        <img src="./colormaps.svg" alt="">
+        <footer>Source: <a href="https://sciviscolor.org">sciviscolor.org</a></footer>
+      </section>
+
+      <section>
+        <h2>Gradients &ndash; Sequential vs. Divergent</h2>
+        <img src="./channels-effectiveness.png" alt="">
+      </section>
+
+      <section>
+        <h2>Gradients &ndash; Sequential vs. Divergent</h2>
+        <img src="./abr-channels.png" alt="" height="500">
+        <footer>Source: Johnson et al. 2019, Artifact-Based Rendering</footer>
+      </section>
+
+      <section>
+        <h2>Binned Gradients</h2>
+        <p>When there's not a well-defined transition between gradient steps</p>
+        <img src="./black-to-white.svg" alt="">
+        <br>
+        <img src="./line-gradient-full.jpg" alt="" height="100">
+      </section>
+
+      <section>
+        <h2>Test your knowledge:</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <img src="http://sculptingvis.tacc.utexas.edu/static/Artifacts/f23f002a-8bbd-11ea-9265-005056bae6d8/thumbnail.png" alt="" class="fragment fade-in-then-out" width="700" style="position: absolute; left: 0">
+            <img src="./glyphs.png" alt="" class="fragment fade-in-then-out" width="700" style="position: absolute; left: 0">
+            <img src="http://sculptingvis.tacc.utexas.edu/static/Artifacts/c3592ff6-f7a6-11ea-87c2-005056bae6d8/thumbnail.png" alt="" class="fragment fade-in-then-out" width="700" style="position: absolute; left: 0">
+            <img src="./discrete.png" alt="" class="fragment fade-in-then-out" width="700" style="position: absolute; left: 0">
+          </div>
+
+          <div class="eight wide column">
+            <ul>
+              <li>Data type: ordered vs. categorical</li>
+              <li>Sequential vs. Divergent</li>
+              <li>Binned</li>
+            </ul>
+          </div>
+        </div>
+        <footer>Source: Francesca Samsel</footer>
+      </section>
+
+      <section>
+        <h2>You should be able to:</h2>
+        <ul>
+        </ul>
+      </section>
+
+      <section>
+        <p><a href="https://github.com/ivlab/umn-csci-5609-s22/tree/main/1_31_data">Data from today is on GitHub!</a></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../dist/reveal.js"></script>
+  <script src="../../plugin/notes/notes.js"></script>
+  <script src="../../plugin/markdown/markdown.js"></script>
+  <script src="../../plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      hash: true,
+      transitionSpeed: 'fast',
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>

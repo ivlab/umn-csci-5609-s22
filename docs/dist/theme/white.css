@@ -227,6 +227,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 
 .reveal pre code {
+  font-size: 36px;
+  line-height: 1.1;
   display: block;
   padding: 5px;
   overflow: auto;
@@ -363,8 +365,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 /* 5609 stuff */
 
 footer {
+  margin: 1rem;
 	color: gray;
-  font-size: small;
+  font-size: 24px;
   font-style: italic;
 }
 
@@ -372,12 +375,16 @@ footer {
   border-left: 50px solid #0E88D5;
 }
 
-li>p.detail {
+p.detail {
   color: gray;
   font-size: var(--r-small-font-size);
   margin: 0;
   margin-left: 1em;
 }
-li>p.detail::before {
+p.detail::before {
   content: "\000bb\00A0";
+}
+
+div.slides {
+  width: 100%;
 }

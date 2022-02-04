@@ -313,9 +313,154 @@
         </div>
       </section>
 
+      <section class="activity">
+        <h2>You should now be able to:</h2>
+        <ul>
+          <li>Define <em>VisAsset</em></li>
+          <li>Log in to the course VisAsset library</li>
+          <li>Upload a gradient using the applets</li>
+          <li>View gradients in the library</li>
+        </ul>
+      </section>
+
 
       <section id="installing-abr">
         <h2>Installing Sculpting Vis Components</h2>
+        <p>After this tutorial, you should be able to:</p>
+        <ul>
+          <li>Define the components of Sculpting Vis</li>
+          <li>Successfully launch each component</li>
+          <li>Make a sample visualization with Sculpting Vis</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Component overview</h2>
+        <p>Sculpting Vis has two components. Use the following instructions to install each:</p>
+        <ul>
+          <li><a href="#/vis-manager-install">The visualization manager</a></li>
+          <li><a href="#/graphics-install">The graphics engine (ABR)</a></li>
+        </ul>
+      </section>
+
+      <section id="vis-manager-install">
+        <section id="vis-manager-install-docker">
+          <h2>Vis Manager</h2>
+          <p>Option 1 (preferred): Docker</p>
+          <p class="detail">If you're comfortable with Python and/or don't want to install Docker,<br><a href="#/vis-manager-install-python"> follow the Python instructions instead.</a></p>
+          <p>Hit the down arrow to see install details</p>
+        </section>
+
+        <section>
+          <h2><a href="https://www.docker.com/get-started">Download Docker</a></h2>
+          <p>Follow the instructions for your operating system (Windows, Mac, or Linux)</p>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/ivlab/abr_server/tree/master/installers">Download vis manager installer</a></h2>
+          <p>Use the file for your OS. We suggest saving it in a folder called <code>SculptingVis</code> somewhere memorable to you.</p>
+          <img src="./abr-server-installers.png" alt="">
+        </section>
+
+        <section>
+          <h2>Install Vis Manager (Windows and MacOS)</h2>
+          <p class="detail">At the end of this process, verify that you have two
+          new folders,<br>"media", and "logs" in the same folder you downloaded the
+          installer to.</p>
+          <ul>
+            <li>Double-click the installer file</li>
+            <li>You may need to allow some permissions or click "more info > run anyway"</li>
+            <li>Wait for the vis manager to download and install <p class="detail">this may take a while</p></li>
+          </ul>
+          <footer>(see <a href="docker-linux">Linux instructions</a> if you're on Linux)</footer>
+        </section>
+
+        <section>
+          <h2>Test Vis Manager (Windows and MacOS)</h2>
+          <ul>
+            <li>Open the Docker Desktop app</li>
+            <li>Verify that <code>sculpting-vis-app</code> shows up as a Container</li>
+            <li>Click the play button on <code>sculpting-vis-app</code> to start the Vis Manager</li>
+            <li>In a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
+              <p class="detail">You should see the design interface:</p>
+            </li>
+          </ul>
+          <img src="./design-interface.png" alt="" style="width: 60%;">
+        </section>
+
+        <section id="docker-linux">
+          <h2>Install Vis Manager (Linux)</h2>
+          <p class="detail">At the end of this process, verify that you have two
+          new folders,<br>"media", and "logs" in the same folder you downloaded the
+          installer to.</p>
+          <ul>
+            <li>Open a terminal to your <code>SculptingVis</code> folder</li>
+            <li>Run the installer: <code>./Install-SculptingVis-Linux.sh</code></li>
+            <li>Wait for the vis manager to download and install <p class="detail">this may take a while</p></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Test Vis Manager (Linux)</h2>
+          <ul>
+            <li>In a terminal, run <code>docker start sculpting-vis-app</code></li>
+            <li>In a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
+              <p class="detail">You should see the design interface:</p>
+            </li>
+          </ul>
+          <img src="./design-interface.png" alt="" style="width: 60%;">
+        </section>
+
+
+
+        <section id="vis-manager-install-python">
+          <h2>Option 2: Python</h2>
+          <p>This install is advanced and requires command-line usage.<br>We recommend using the <a href="#/vis-manager-install">Docker option</a> if you can.</p>
+        </section>
+
+        <section>
+          <h2>Install Python</h2>
+          <p>The Vis Manager requires <a href="https://www.python.org/downloads/release/python-3810/">Python version 3.8.10</a>. <p class="detail">
+          It may work with 3.9 and 3.10 but hasn't been tested.
+          </p> </p>
+        </section>
+
+        <section>
+          <h2>Download the code</h2>
+          <p>Clone or download the <a href="https://github.com/ivlab/abr_server">ABR Server GitHub repository</a> to a memorable place
+            <p class="detail">We suggest a folder named "SculptingVis"</p></p>
+        </section>
+
+        <section>
+          <h2>Install requirements</h2>
+          <p>Open a terminal to the <code>abr_server</code> folder, and run:</p>
+          <pre><code data-trim>
+            python3 -m pip install -r requirements.txt
+            python3 manage.py collectstatic --no-input
+            python3 manage.py migrate
+          </code></pre>
+          <footer>Note: you may need to replace <code>python3</code> with
+          <code>python3.8</code>, <code>python</code>, or <code>py</code>
+          <br>depending on your operating system and Python setup.</footer>
+        </section>
+
+        <section>
+          <h2>Test the Vis Manager</h2>
+          <p>In a terminal within your <code>abr_server</code> folder, run:</p>
+          <pre><code data-trim>
+            python3 manage.py runserver
+          </code></pre>
+          <p>Then, in a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
+              <p class="detail">You should see the design interface:</p>
+          </p>
+          <img src="./design-interface.png" alt="" style="width: 60%;">
+        </section>
+      </section>
+
+      <section id="vis-manager-install">
+        <section>
+          <h2>Graphics Engine (ABR)</h2>
+        </section>
       </section>
 
     </div>

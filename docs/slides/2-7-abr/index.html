@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>2/7: ABR - CSCI 5609</title>
+
+  <link rel="stylesheet" href="../../dist/reset.css">
+  <link rel="stylesheet" href="../../dist/reveal.css">
+  <link rel="stylesheet" href="../../dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2>Artifact-Based Rendering (ABR)</h2>
+        <footer>CSCI 5609: Visualization | Bridger Herman</footer>
+      </section>
+
+      <section>
+        <h2>In this tutorial</h2>
+        <ul>
+          <li><a href="#/uploading-content">Uploading VisAssets from Assignment 2</a></li>
+          <li><a href="#/installing-abr">Installing Sculpting Vis Components</a></li>
+        </ul>
+      </section>
+
+      <section id="uploading-content">
+        <h2>Uploading VisAssets from Assignment 2</h2>
+        <p>After this tutorial, you should be able to:</p>
+        <ul>
+          <li>Define <em>VisAsset</em></li>
+          <li>Log in to the course VisAsset library</li>
+          <li>Upload a gradient using the applets</li>
+          <li>View gradients in the library</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What is a VisAsset?</h2>
+        <p><strong>Visualization Asset</strong> (VisAsset):</p>
+        <p><em>a visual building
+        block or element of a visualization<br>sourced from real-world artifacts
+        and materials.</em></p>
+        <div class="ui grid">
+          <div class="four wide column">
+            <div class="ui placeholder">
+              <div class="image"></div>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="ui placeholder">
+              <div class="image"></div>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="ui placeholder">
+              <div class="image"></div>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="ui placeholder">
+              <div class="image"></div>
+            </div>
+          </div>
+        </div>
+        <footer>- Johnson et al. 2019</footer>
+      </section>
+
+      <section>
+        <h2>What is a VisAsset?</h2>
+        <p>Each panel of your A2 gradients is a VisAsset!</p>
+        <img src="./gradient2abr.png" alt="" style="width: 70%">
+      </section>
+
+      <section>
+        <h2>VisAsset Library</h2>
+        <div class="ui grid">
+          <div class="five wide column">
+            <img src="./colormap-library.png" alt="">
+          </div>
+          <div class="five wide column">
+            <img src="./line-library.png" alt="">
+          </div>
+          <div class="five wide column">
+            <img src="./texture-library.png" alt="">
+          </div>
+        </div>
+        <p><em>A place to put VisAssets for safekeeping</em></p>
+      </section>
+
+      <section>
+        <h2>How to log into the library</h2>
+        <ol>
+          <li>Go to <a href="https://z.umn.edu/cs5609-library">z.umn.edu/cs5609-library</a>
+          <p class="detail">or, <a href="https://sculptingvis.tacc.utexas.edu:8443">https://sculptingvis.tacc.utexas.edu:8443</a></p></li>
+          <li>Click "Log In"</li>
+          <li>Enter the credentials that were emailed to you
+            <p class="detail">sorry, you cannot change them</p>
+          </li>
+        </ol>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <img src="./library-login.png" alt="">
+          </div>
+          <div class="eight wide column">
+            <img src="./library-loggedin.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Uploading a VisAsset</h2>
+        <p>Use the Applets!</p>
+        <ul>
+          <li><strong>Colormaps:</strong> <a href="#/color-loom">Color Loom</a></li>
+          <li><strong>Lines:</strong> <a href="#/infinite-line">Infinite Line</a></li>
+          <li><strong>Textures:</strong> <a href="#/texture-mapper">Texture Mapper</a></li>
+        </ul>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <img src="./library-applets.png" alt="">
+          </div>
+          <div class="eight wide column">
+            <img src="./applets-overview.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>General process for applets</h2>
+        <ol>
+          <li>Upload / capture image</li>
+          <li>Adjust image</li>
+          <li>
+            Upload VisAsset to library
+            <ul>
+              <li>Internet ID</li>
+              <li>Name of gradient</li>
+              <li>Percentage through gradient</li>
+            </ul>
+          </li>
+        </ol>
+        <p class="detail">For gradients with multiple VisAssets (e.g., discrete lines and
+        textures),<br>you will need to repeat the upload process for each panel in
+        the gradient.</p>
+        <footer>Note: there may be some funky browser things in the applets.<br>Try zooming in and out and/or refreshing.</footer>
+      </section>
+
+      <section id="color-loom">
+        <section>
+          <h2>Applet Instructions: Color Loom</h2>
+          <p><em>Press down arrow to see instructions!</em></p>
+          <img src="./color-loom.png" alt="" style="width: 60%;">
+        </section>
+
+        <section>
+          <h2>Capture an Image</h2>
+          <ul>
+            <li>Take a photo with your webcam, OR</li>
+            <li>Drag and drop a photo from your computer</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Adjust colors</h2>
+          <ul>
+            <li>Pick additional colors by clicking on the image</li>
+            <li>Adjust color swatches using the HSV sliders on the left</li>
+          </ul>
+
+          <img src="./color-loom1.png" alt="" style="width: 60%">
+        </section>
+
+        <section>
+          <h2>Build colormap</h2>
+          <div class="ui grid">
+            <div class="ten wide column">
+              <ul>
+                <li>Drag and drop color swatches to the right panel</li>
+                <li>Adjust vertically</li>
+                <li>Delete clicking and using the 'del' key</li>
+              </ul>
+            </div>
+            <div class="six wide column">
+              <img src="./color-loom2.png" alt="" style="width: 50%">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Upload to library</h2>
+          <p>Click "Save to Library"</p>
+          <ul>
+            <li><strong>Family</strong> (leave unchanged): your internet ID</li>
+            <li><strong>Class:</strong> name of your gradient
+            <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
+            <li><strong>Tag:</strong> leave blank for colormaps, since the VisAsset is the entire colormap</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Uploading another colormap</h2>
+          <p>Just click "Take a snap with webcam" again!</p>
+        </section>
+      </section>
+
+      <section id="infinite-line">
+        <section>
+          <h2>Applet Instructions: Infinite Line</h2>
+          <p><em>Press down arrow to see instructions!</em></p>
+          <img src="./infinite-line.png" alt="" style="width: 60%;">
+        </section>
+
+        <section>
+          <h2>Capture an Image</h2>
+          <ul>
+            <li>Take a photo with your webcam
+              <p class="detail">Line up your line with the dotted guides</p>
+              <p class="detail">Use the black/white slider to make sure your line shows up</p>
+              <p class="detail">Use the aspect ratio slider to match your line</p>
+            </li>
+            <li>Drag and drop a photo from your computer</li>
+          </ul>
+          <img src="./infinite-line2.png" alt="" style="width: 60%">
+        </section>
+
+        <section>
+          <h2>Adjust parameters</h2>
+          <ul>
+            <li>If your line matches at the top and bottom nicely, leave it on "just repeat it"</li>
+            <li>If not, use the three sliders to adjust how it looks</li>
+          </ul>
+
+          <img src="./infinite-line3.png" alt="" style="width: 60%">
+        </section>
+
+        <section>
+          <h2>Upload to library</h2>
+          <p>Click "Save to Library"</p>
+          <ul>
+            <li><strong>Family</strong> (leave unchanged): your internet ID</li>
+            <li><strong>Class:</strong> name of your gradient
+            <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
+            <li><strong>Tag:</strong> the percentage through your gradient that you labeled on paper (e.g., 50%)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Uploading another line</h2>
+          <p>Just click "Take a snap with webcam" again!</p>
+        </section>
+      </section>
+
+      <section id="texture-mapper">
+        <section>
+          <h2>Applet Instructions: Texture Mapper</h2>
+          <p><em>Press down arrow to see instructions!</em></p>
+          <img src="./texture-mapper.png" alt="" style="width: 60%;">
+        </section>
+
+        <section>
+          <h2>Capture an Image</h2>
+          <ul>
+            <li>Take a photo with your webcam, or</li>
+            <li>Drag and drop a photo from your computer</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Crop image</h2>
+          <ul>
+            <li>Crop image so the focus is where you want it</li>
+          </ul>
+
+          <img src="./texture-mapper2.png" alt="" style="width: 60%">
+        </section>
+
+        <section>
+          <h2>Upload to library</h2>
+          <p>Click "Save to Library"</p>
+          <ul>
+            <li><strong>Family</strong> (leave unchanged): your internet ID</li>
+            <li><strong>Class:</strong> name of your gradient
+            <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
+            <li><strong>Tag:</strong> the percentage through your gradient that you labeled on paper (e.g., 50%)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Uploading another texture</h2>
+          <p>Just click "Take a snap with webcam" again!</p>
+        </section>
+      </section>
+
+      <section>
+        <h2>Viewing your gradients</h2>
+        <p><a href="https://z.umn.edu/cs5609-library">z.umn.edu/cs5609-library</a>, go to gradient library</p>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <img src="./library2.png" alt="">
+          </div>
+          <div class="eight wide column">
+            <img src="./library3.png" alt="">
+          </div>
+        </div>
+      </section>
+
+
+      <section id="installing-abr">
+        <h2>Installing Sculpting Vis Components</h2>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../dist/reveal.js"></script>
+  <script src="../../plugin/notes/notes.js"></script>
+  <script src="../../plugin/markdown/markdown.js"></script>
+  <script src="../../plugin/highlight/highlight.js"></script>
+  <script src="../timer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      hash: true,
+      transitionSpeed: 'fast',
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+
+</body>
+
+</html>

@@ -387,7 +387,7 @@
           <ul>
             <li>Open the Docker Desktop app</li>
             <li>Verify that <code>sculpting-vis-app</code> shows up as a Container</li>
-            <li>Click the play button on <code>sculpting-vis-app</code> to start the Vis Manager</li>
+            <li>Click the play button on <code>sculpting-vis-app</code> to start the Vis Manager <img src="./docker-start.png" alt="" height="50"></li>
             <li>In a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
               <p class="detail">You should see the design interface:</p>
             </li>
@@ -483,14 +483,22 @@
 
         <section>
           <h2>Get the code</h2>
-          <p>Download zip file to your "SculptingVis" folder and unzip it</p>
-          <p class="detail">or, clone the git repository to your SculptingVis folder</p>
-          <!-- TODO -->
+          <ol>
+            <li><a href="https://github.com/ivlab/SculptingVisApp/archive/refs/heads/csci5609.zip">Download the support code zip file</a></li>
+            <li>Unzip it in your "SculptingVis" folder</li>
+          </ol>
+          <br>
+          <p class="detail">or, clone the git repository to your SculptingVis folder and checkout the <code>csci5609</code> branch</p>
         </section>
 
         <section>
           <h2>Open the project from Unity Hub</h2>
-          <!-- TODO -->
+          <ol>
+            <li>Under "Projects", click "Add"</li>
+            <li>Select the SculptingVisApp folder you unzipped</li>
+            <li>Click on the SculptingVisApp project to open it in Unity</li>
+          </ol>
+          <img src="./open-unity-hub.png" alt="" height="300">
         </section>
 
         <section>
@@ -502,9 +510,41 @@
         <section>
           <h2>Start Unity</h2>
           <p>Press the 'Play' button</p>
-          <p>Check and make sure there are no errors in the console</p>
-          <!-- TODO -->
+          <p>Check and make sure there are no errors in the console
+            <p class="detail">One about 'unable to parse color' is normal</p>
+          </p>
+          <img src="./abr-unity.png" alt="" height="400">
         </section>
+      </section>
+
+      <section>
+        <h2>You should now be able to:</h2>
+        <ul>
+          <li>Define the components of Sculpting Vis</li>
+          <li>Successfully launch each component</li>
+          <li>Make a sample visualization with Sculpting Vis</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Review / Launching Normally</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h6>Vis Manager</h6>
+            <ol>
+              <li>Open Docker Desktop</li>
+              <li>Click "play" button on<br><code>sculpting-vis-app</code></li>
+            </ol>
+          </div>
+          <div class="eight wide column">
+            <h6>ABR</h6>
+            <ol>
+              <li>Open Unity Hub</li>
+              <li>Click on SculptingVisApp project</li>
+              <li>Click "play" button in Unity</li>
+            </ol>
+          </div>
+        </div>
       </section>
 
     </div>

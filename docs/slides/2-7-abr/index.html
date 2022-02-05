@@ -183,6 +183,7 @@
             <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
             <li><strong>Tag:</strong> leave blank for colormaps, since the VisAsset is the entire colormap</li>
           </ul>
+          <p>If you see "successfully uploaded", you're done!</p>
         </section>
 
         <section>
@@ -230,6 +231,7 @@
             <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
             <li><strong>Tag:</strong> the percentage through your gradient that you labeled on paper (e.g., 50%)</li>
           </ul>
+          <p>If you see "successfully uploaded", you're done!</p>
         </section>
 
         <section>
@@ -271,6 +273,7 @@
             <p class="detail">Name it anything you like, we suggest <code>gradient1</code>... <code>gradientN</code> to correspond with your physical copy</p></li>
             <li><strong>Tag:</strong> the percentage through your gradient that you labeled on paper (e.g., 50%)</li>
           </ul>
+          <p>If you see "successfully uploaded", you're done!</p>
         </section>
 
         <section>
@@ -344,9 +347,19 @@
         </section>
 
         <section>
-          <h2><a href="https://github.com/ivlab/abr_server/tree/master/installers">Download vis manager installer</a></h2>
-          <p>Use the file for your OS. Save it in your "SculptingVis" folder.</p>
-          <img src="./abr-server-installers.png" alt="">
+          <h2>Download vis manager installer</h2>
+          <p>Download the version for your operating system:</p>
+          <div class="ui grid">
+            <div class="five wide column">
+              <h6><a href="./installers/Install-SculptingVis-Windows.bat"></a>Windows</a></h6>
+            </div>
+            <div class="five wide column">
+              <h6><a href="./installers/Install-SculptingVis-Mac.command"></a>MacOS</a></h6>
+            </div>
+            <div class="five wide column">
+              <h6><a href="./installers/Install-SculptingVis-Linux.sh"></a>Linux</a></h6>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -355,8 +368,12 @@
           new folders,<br>"media", and "logs" in the same folder you downloaded the
           installer to.</p>
           <ul>
-            <li>Double-click the installer file</li>
-            <li>You may need to allow some permissions or click "more info > run anyway"</li>
+            <li>Double-click the installer file
+              <p class="detail">On Windows, you may need to click "More Info" >
+              "Allow Anyway"</p>
+              <p class="detail">On MacOS, you may need to right click,
+              cmd+click "Open", then click "Open"</p>
+            </li>
             <li>Wait for the vis manager to download and install <p class="detail">this may take a while</p></li>
           </ul>
           <footer>(see <a href="docker-linux">Linux instructions</a> if you're on Linux)</footer>
@@ -438,7 +455,8 @@
             python3 manage.py runserver
           </code></pre>
           <p>Then, in a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
-              <p class="detail">You should see the design interface:</p>
+              <p class="detail">If you see the design interface, like this,d
+              you're done!</p>
           </p>
           <img src="./design-interface.png" alt="" style="width: 60%;">
         </section>
@@ -475,7 +493,9 @@
           <h2>Open the project from Unity Hub</h2>
           <ol>
             <li>Under "Projects", click "Add"</li>
-            <li>Select the SculptingVisApp folder you unzipped</li>
+            <li>Select the SculptingVisApp folder you unzipped
+              <p class="detail">it may be named SculptingVisApp-csci5609</p>
+            </li>
             <li>Click on the SculptingVisApp project to open it in Unity</li>
           </ol>
           <img src="./open-unity-hub.png" alt="" height="300">
@@ -493,6 +513,7 @@
           <p>Check and make sure there are no errors in the console
             <p class="detail">One about 'unable to parse color' is normal</p>
           </p>
+          <p>If you see something like the following, you're done!</p>
           <img src="./abr-unity.png" alt="" height="400">
         </section>
       </section>

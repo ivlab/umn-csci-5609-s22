@@ -7,13 +7,19 @@
 
   <title>2/7: ABR - CSCI 5609</title>
 
-  <link rel="stylesheet" href="../../dist/reset.css">
-  <link rel="stylesheet" href="../../dist/reveal.css">
-  <link rel="stylesheet" href="../../dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
+
+  <style>
+      section {
+          border: 1px solid gray;
+          border-radius: 5px;
+          margin: 0.5rem;
+          padding: 0.5rem;
+      }
+  </style>
 </head>
 
 <body>
@@ -555,51 +561,7 @@
     </div>
   </div>
 
-  <script src="../../dist/reveal.js"></script>
-  <script src="../../plugin/notes/notes.js"></script>
-  <script src="../../plugin/markdown/markdown.js"></script>
-  <script src="../../plugin/highlight/highlight.js"></script>
-  <script src="../timer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-  <script>
-    // More info about initialization & config:
-    // - https://revealjs.com/initialization/
-    // - https://revealjs.com/config/
-    Reveal.initialize({
-      width: 1280,
-      height: 720,
-      hash: true,
-      transitionSpeed: 'fast',
-
-      // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-    });
-  </script>
-
-  <script>
-    let articleMode = document.createElement('div');
-    articleMode.innerHTML = '<a href="./index-article.html">Switch to article mode instead of slides</a>';
-    articleMode.style.position = 'absolute';
-    articleMode.style.width = '30%';
-    articleMode.style.height = '30%';
-    articleMode.style.bottom = 0;
-    articleMode.style.right = 0;
-    articleMode.style.transition = '0.5s';
-    articleMode.style.opacity = '0%';
-    document.body.append(articleMode);
-    articleMode.addEventListener('mouseenter', () => {
-      articleMode.style.opacity = '100%';
-    });
-    articleMode.addEventListener('mouseleave', () => {
-      articleMode.style.opacity = '0%';
-    });
-    setTimeout(() => {
-      articleMode.style.opacity = '100%';
-    }, 250);
-    setTimeout(() => {
-      articleMode.style.opacity = '0%';
-    }, 3000);
-  </script>
 
 </body>
 

@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="../../dist/reveal.css">
   <link rel="stylesheet" href="../../dist/theme/white.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!-- <style>
+      section {
+          border: 1px solid gray;
+          border-radius: 5px;
+          margin: 0.5rem;
+          padding: 0.5rem;
+      }
+  </style> -->
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
@@ -29,11 +37,12 @@
         <ul>
           <li><a href="#/uploading-content">Uploading VisAssets from Assignment 2</a></li>
           <li><a href="#/installing-abr">Installing Sculpting Vis Components</a></li>
+          <li><a href="#/making-a-vis">Making a Visualization with Sculpting Vis</a></li>
         </ul>
       </section>
 
       <section id="uploading-content">
-        <h2>Part 1: Uploading VisAssets from Assignment 2</h2>
+        <h2>Part 1: Uploading VisAssets</h2>
         <p>After this tutorial, you should be able to:</p>
         <ul>
           <li>Define <em>VisAsset</em></li>
@@ -360,9 +369,9 @@
         <section>
           <h2>Install Vis Manager (Windows and MacOS)</h2>
           <p class="detail">At the end of this process, verify that you have two
-          new folders,<br>"media", and "logs" in the same folder you downloaded the
-          installer to.</p>
+          new folders,<br>"media", and "logs" in the SculptingVis folder.</p>
           <ul>
+            <li>Make sure Docker is running (open the Docker Desktop app)</li>
             <li>Double-click the installer file
               <p class="detail">On Windows, you may need to click "More Info" >
               "Allow Anyway"</p>
@@ -371,7 +380,7 @@
             </li>
             <li>Wait for the vis manager to download and install <p class="detail">this may take a while</p></li>
           </ul>
-          <footer>(see <a href="docker-linux">Linux instructions</a> if you're on Linux)</footer>
+          <footer>(see <a href="#/docker-linux">Linux instructions</a> if you're on Linux)</footer>
         </section>
 
         <section>
@@ -550,6 +559,51 @@
             </ol>
           </div>
         </div>
+      </section>
+
+      <section id="making-a-vis">
+        <h2>Making a Visualization</h2>
+        <img src="./Opening_Top1.png" alt="">
+      </section>
+
+      <section>
+        <h2>Overview</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h6><a href="#/about-design-ui">Design UI</a></h6>
+            <img src="./design-interface-fire.png" alt="" height="300">
+          </div>
+          <div class="eight wide column">
+            <h6>ABR (in Unity)</h6>
+            <img src="./unity-fire.png" alt="" height="300">
+          </div>
+        </div>
+      </section>
+
+      <section id="about-design-ui">
+        <h2>Design UI</h2>
+        <img src="./design-interface-fire-wide.png" alt="" height="500">
+        <div class="ui grid">
+          <div class="three wide column">
+            <h6>Data Palette</h6>
+          </div>
+          <div class="ten wide column">
+            <h6>Composition Panel</h6>
+          </div>
+          <div class="three wide column">
+            <h6>Design Palette</h6>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Basic Usage</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pmawi3QpxE8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+
+      <section>
+        <h2>Advanced Usage</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OBgYQBr20uE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </section>
 
     </div>

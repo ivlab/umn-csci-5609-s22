@@ -346,7 +346,10 @@
         <section id="vis-manager-install-docker">
           <h2>Vis Manager</h2>
           <p>Option 1 (preferred): Docker</p>
-          <p class="detail">If you're comfortable with Python and/or don't want to install Docker,<br><a href="#/vis-manager-install-python"> follow the Python instructions instead.</a></p>
+          <ul>
+            <p class="detail">If you're comfortable with Python and/or don't want to install Docker,<br>&nbsp;&nbsp;&nbsp;<a href="#/vis-manager-install-python"> follow the Python instructions instead.</a></p>
+            <p class="detail">If you're using a CSE Labs computer or don't want to use Docker on Windows,<br>&nbsp;&nbsp;&nbsp;<a href="#/vis-manager-embedded">use the embedded vis manager instructions.</a> </p>
+          </ul>
           <p>Hit the down arrow to see install details</p>
         </section>
 
@@ -459,14 +462,24 @@
             python3 manage.py runserver
           </code></pre>
           <p>Then, in a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
-              <p class="detail">If you see the design interface, like this,d
+              <p class="detail">If you see the design interface, like this,
               you're done!</p>
           </p>
           <img src="./design-interface.png" alt="" style="width: 60%;">
         </section>
+
+        <section id="vis-manager-embedded">
+          <h2>Embedded Vis Manager</h2>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1_skVUi8GozWBfkuFe-eYP_h-3oAcn9TG/view?usp=sharing">Download the embedded Vis Manager</a> and unzip it to your SculptingVis folder</li>
+            <li>Double-click the <code>RunVisManager.bat</code> file</li>
+          </ul>
+          <p>Your SculptingVis folder should look like this now:</p>
+          <img src="./embedded.png" alt="" height="300">
+        </section>
       </section>
 
-      <section id="vis-manager-install">
+      <section id="graphics-install">
         <section>
           <h2>Graphics Engine (ABR)</h2>
           <p>The Artifact-Based Rendering engine uses the Unity Game Engine.</p>

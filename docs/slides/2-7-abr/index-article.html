@@ -7,11 +7,10 @@
 
   <title>2/7: ABR - CSCI 5609</title>
 
+  <!-- <link rel="stylesheet" href="../../dist/reset.css">
+  <link rel="stylesheet" href="../../dist/reveal.css">
+  <link rel="stylesheet" href="../../dist/theme/white.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-
-  <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
-
   <style>
       section {
           border: 1px solid gray;
@@ -20,6 +19,9 @@
           padding: 0.5rem;
       }
   </style>
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="../../plugin/highlight/atom-one-light.css">
 </head>
 
 <body>
@@ -35,11 +37,12 @@
         <ul>
           <li><a href="#/uploading-content">Uploading VisAssets from Assignment 2</a></li>
           <li><a href="#/installing-abr">Installing Sculpting Vis Components</a></li>
+          <li><a href="#/making-a-vis">Making a Visualization with Sculpting Vis</a></li>
         </ul>
       </section>
 
       <section id="uploading-content">
-        <h2>Part 1: Uploading VisAssets from Assignment 2</h2>
+        <h2>Part 1: Uploading VisAssets</h2>
         <p>After this tutorial, you should be able to:</p>
         <ul>
           <li>Define <em>VisAsset</em></li>
@@ -343,7 +346,10 @@
         <section id="vis-manager-install-docker">
           <h2>Vis Manager</h2>
           <p>Option 1 (preferred): Docker</p>
-          <p class="detail">If you're comfortable with Python and/or don't want to install Docker,<br><a href="#/vis-manager-install-python"> follow the Python instructions instead.</a></p>
+          <ul>
+            <p class="detail">If you're comfortable with Python and/or don't want to install Docker,<br>&nbsp;&nbsp;&nbsp;<a href="#/vis-manager-install-python"> follow the Python instructions instead.</a></p>
+            <p class="detail">If you're using a CSE Labs computer or don't want to use Docker on Windows,<br>&nbsp;&nbsp;&nbsp;<a href="#/vis-manager-embedded">use the embedded vis manager instructions.</a> </p>
+          </ul>
           <p>Hit the down arrow to see install details</p>
         </section>
 
@@ -366,9 +372,9 @@
         <section>
           <h2>Install Vis Manager (Windows and MacOS)</h2>
           <p class="detail">At the end of this process, verify that you have two
-          new folders,<br>"media", and "logs" in the same folder you downloaded the
-          installer to.</p>
+          new folders,<br>"media", and "logs" in the SculptingVis folder.</p>
           <ul>
+            <li>Make sure Docker is running (open the Docker Desktop app)</li>
             <li>Double-click the installer file
               <p class="detail">On Windows, you may need to click "More Info" >
               "Allow Anyway"</p>
@@ -377,7 +383,7 @@
             </li>
             <li>Wait for the vis manager to download and install <p class="detail">this may take a while</p></li>
           </ul>
-          <footer>(see <a href="docker-linux">Linux instructions</a> if you're on Linux)</footer>
+          <footer>(see <a href="#/docker-linux">Linux instructions</a> if you're on Linux)</footer>
         </section>
 
         <section>
@@ -456,14 +462,24 @@
             python3 manage.py runserver
           </code></pre>
           <p>Then, in a browser, go to <a href="http://localhost:8000">http://localhost:8000</a>
-              <p class="detail">If you see the design interface, like this,d
+              <p class="detail">If you see the design interface, like this,
               you're done!</p>
           </p>
           <img src="./design-interface.png" alt="" style="width: 60%;">
         </section>
+
+        <section id="vis-manager-embedded">
+          <h2>Embedded Vis Manager</h2>
+          <ul>
+            <li><a href="https://drive.google.com/file/d/1_skVUi8GozWBfkuFe-eYP_h-3oAcn9TG/view?usp=sharing">Download the embedded Vis Manager</a> and unzip it to your SculptingVis folder</li>
+            <li>Double-click the <code>RunVisManager.bat</code> file</li>
+          </ul>
+          <p>Your SculptingVis folder should look like this now:</p>
+          <img src="./embedded.png" alt="" height="300">
+        </section>
       </section>
 
-      <section id="vis-manager-install">
+      <section id="graphics-install">
         <section>
           <h2>Graphics Engine (ABR)</h2>
           <p>The Artifact-Based Rendering engine uses the Unity Game Engine.</p>
@@ -558,10 +574,99 @@
         </div>
       </section>
 
+      <section id="making-a-vis">
+        <h2>Making a Visualization</h2>
+        <img src="./Opening_Top1.png" alt="">
+      </section>
+
+      <section>
+        <h2>Overview</h2>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <h6><a href="#/about-design-ui">Design UI</a></h6>
+            <img src="./design-interface-fire.png" alt="" height="300">
+          </div>
+          <div class="eight wide column">
+            <h6>ABR (in Unity)</h6>
+            <img src="./unity-fire.png" alt="" height="300">
+          </div>
+        </div>
+      </section>
+
+      <section id="about-design-ui">
+        <h2>Design UI</h2>
+        <img src="./design-interface-fire-wide.png" alt="" height="500">
+        <div class="ui grid">
+          <div class="three wide column">
+            <h6>Data Palette</h6>
+          </div>
+          <div class="ten wide column">
+            <h6>Composition Panel</h6>
+          </div>
+          <div class="three wide column">
+            <h6>Design Palette</h6>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Basic Usage</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pmawi3QpxE8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+
+      <section>
+        <h2>Advanced Usage</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/OBgYQBr20uE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+
     </div>
   </div>
 
+  <!-- <script src="../../dist/reveal.js"></script>
+  <script src="../../plugin/notes/notes.js"></script>
+  <script src="../../plugin/markdown/markdown.js"></script>
+  <script src="../../plugin/highlight/highlight.js"></script>
+  <script src="../timer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      hash: true,
+      transitionSpeed: 'fast',
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+
+  <script>
+    let articleMode = document.createElement('div');
+    articleMode.innerHTML = '<a href="./index-article.html">Switch to article mode instead of slides</a>';
+    articleMode.style.position = 'absolute';
+    articleMode.style.width = '30%';
+    articleMode.style.height = '30%';
+    articleMode.style.bottom = 0;
+    articleMode.style.right = 0;
+    articleMode.style.transition = '0.5s';
+    articleMode.style.opacity = '0%';
+    document.body.append(articleMode);
+    articleMode.addEventListener('mouseenter', () => {
+      articleMode.style.opacity = '100%';
+    });
+    articleMode.addEventListener('mouseleave', () => {
+      articleMode.style.opacity = '0%';
+    });
+    setTimeout(() => {
+      articleMode.style.opacity = '100%';
+    }, 250);
+    setTimeout(() => {
+      articleMode.style.opacity = '0%';
+    }, 3000);
+  </script> -->
 
 </body>
 

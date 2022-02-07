@@ -652,6 +652,7 @@
     articleMode.style.bottom = 0;
     articleMode.style.right = 0;
     articleMode.style.transition = '0.5s';
+    articleMode.style.transitionDelay = '1s';
     articleMode.style.opacity = '0%';
     document.body.append(articleMode);
     articleMode.addEventListener('mouseenter', () => {
@@ -665,7 +666,7 @@
     }, 250);
     setTimeout(() => {
       articleMode.style.opacity = '0%';
-    }, 3000);
+    }, 8000);
   </script>
 
 </body>

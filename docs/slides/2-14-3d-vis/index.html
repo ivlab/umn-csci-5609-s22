@@ -25,8 +25,9 @@
       </section>
 
       <section>
-        <h2>By the end of this part of class today,<br>you should be able to:</h2>
+        <h2>By the end of this part,<br>you should be able to:</h2>
         <ul>
+          <li>Apply ABR design interface terms to C# scripting with ABR</li>
           <li>Explain appropriate use cases for 3D visualization</li>
           <li>Define some components of a 3D graphics visualization</li>
           <li>Apply 3D graphics / visualization terminology to the Unity engine</li>
@@ -34,11 +35,191 @@
         </ul>
       </section>
 
+      <section>
+        <h2>Quick demo of A4</h2>
+      </section>
+
+      <section>
+        <h2>ABR Programming for ABR Designers</h2>
+        <p>You should already be familiar with these terms:</p>
+        <div class="ui grid">
+          <div class="five wide column fragment" data-fragment-index="1">
+            <h6>Key Data</h6>
+            <p>Geometric structure of the data</p>
+            <img src="./surfaceData.png" alt="" height="150">
+          </div>
+          <div class="five wide column fragment" data-fragment-index="3">
+            <h6>Data Impressions</h6>
+            <p>Combine data and visuals</p>
+            <img src="./groundTower.png" alt="" height="300">
+          </div>
+          <div class="five wide column fragment" data-fragment-index="2">
+            <h6>VisAssets</h6>
+            <p>Handcrafted visual elements</p>
+            <img src="./colormap.png" alt="" height="150">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Key Data</h2>
+        <p>Geometric structure of the data</p>
+        <div class="ui grid">
+          <div class="four wide column">
+            <img src="./pointData.png" alt="" height="150">
+          </div>
+          <div class="four wide column">
+            <img src="./surfaceData.png" alt="" height="150">
+          </div>
+          <div class="four wide column">
+            <img src="./lineData.png" alt="" height="150">
+          </div>
+          <div class="four wide column">
+            <img src="./volumeData.png" alt="" height="150">
+          </div>
+        </div>
+        <div class="fragment">
+          <p>Use KeyData to set geometry of vis and get variables</p>
+          <pre class="csharp"><code data-trim>
+            KeyData kd = ...
+            kd.GetScalarVariables()[0];
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>VisAssets</h2>
+        <p>Handcrafted visual elements</p>
+        <div class="ui grid">
+          <div class="four wide column">
+            <img src="./colormap.png" alt="" height="100">
+          </div>
+          <div class="four wide column">
+            <img src="./lineva.png" alt="" height="100">
+          </div>
+          <div class="four wide column">
+            <img src="./tex.png" alt="" height="100">
+          </div>
+          <div class="four wide column">
+            <img src="./glyph.png" alt="" height="100">
+          </div>
+        </div>
+        <div class="fragment">
+          <p>Each VisAsset has a unique identifer (Guid):</p>
+          <pre class="csharp"><code data-trim>
+          // Example: Load a colormap
+          Guid uuid = new Guid("5a761a72-8bcb-11ea-9265-005056bae6d8");
+
+          ColormapVisAsset cmap =
+              ABREngine.Instance.VisAssets
+                  .LoadVisAsset&lt;ColormapVisAsset&gt;(uuid);
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Data Impressions</h2>
+        <p>Putting together data + visuals</p>
+          <pre class="csharp"><code data-trim data-line-numbers="2-3|6-10|13-19|22">
+// Import data
+KeyData groundData =
+    ABREngine.Instance.Data.ImportRawDataset(...);
+
+// Import the colormap
+Guid uuid = new Guid("5a761a72-8bcb-11ea-9265-005056bae6d8");
+
+ColormapVisAsset cmap =
+    ABREngine.Instance.VisAssets
+        .LoadVisAsset&lt;ColormapVisAsset&gt;(uuid);
+
+// Create a new data impression for the ground
+SimpleSurfaceDataImpression ground =
+    new SimpleSurfaceDataImpression();
+
+ground.keyData = groundData;
+ground.colormap = cmap;
+ground.colorVariable =
+    groundData.GetScalarVariables()[0];
+
+// Register the data impression with the engine
+ABREngine.Instance.RegisterDataImpression(ground);
+          </code></pre>
+      </section>
+
+      <section>
+        <h2>New Concepts: ABREngine</h2>
+        <p>Okay, so what's this <code>ABREngine.Instance</code> thing?</p>
+
+        <p class="fragment">Singleton object to construct visualizations</p>
+
+        <pre class="fragment csharp"><code data-trim>
+          // Example: Load a colormap
+          Guid uuid = new Guid("5a761a72-8bcb-11ea-9265-005056bae6d8");
+
+          ColormapVisAsset cmap =
+              ABREngine.Instance.VisAssets
+                  .LoadVisAsset&lt;ColormapVisAsset&gt;(uuid);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>New Concepts: RawDataset</h2>
+        <p>How do I import data?</p>
+        <p>1. Load the data into raw ABR format &nbsp; 2. Import raw data to get KeyData</p>
+        <pre class="fragment csharp"><code data-trim data-line-numbers="1-2|6-7|9-10">
+List&lt;Vector3&gt; points =
+    new List&lt;Vector3&gt; { Vector3.zero, Vector3.one, 2*Vector3.one };
+
+Bounds b = new Bounds(Vector3.zero, 2*Vector3.one);
+
+RawDataset abrPoints =
+    RawDatasetAdapter.PointsToPoints(points, b, null, null);
+
+KeyData pointsKD =
+    ABREngine.Instance.Data.ImportRawDataset(abrPoints);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>More 3D graphics concepts / review</h2>
+        <div class="ui grid">
+          <div class="nine wide column">
+            <ul>
+              <li class="fragment">3D points: <code>new Vector3(x, y, z)</code></li>
+              <li class="fragment">Key data are made up of points
+                <ul>
+                  <li>Points: just points</li>
+                  <li>Line: connected points</li>
+                  <li>Surface: triangles of points</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="seven wide column">
+            <img src="./triangles.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <ul>
+          <li>Key Data, VisAssets, and Data Impressions ~same</li>
+          <li>Use methods in <code>ABREngine.Instance</code> to create the vis</li>
+          <li>Use <code>RawDatasetAdapter</code> to make ABR-format datasets and import them</li>
+          <li>3D vis uses many 3D graphics conventions</li>
+        </ul>
+      </section>
+
+      <section class="activity">
+        <h2>Putting it together</h2>
+        <p>Let's make a vis!</p>
+      </section>
 
       <section>
         <h2>Looking ahead:</h2>
         <ul>
-          <li>Wednesday: Flow Visualization</li>
+          <li>Wednesday: Comparative Visualization</li>
           <li>Sunday: Assignment 4 Due</li>
         </ul>
       </section>
@@ -67,88 +248,6 @@
       plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
     });
   </script>
-
-  <script>
-const ctx = document.getElementById('myChart').getContext('2d');
-let data = [
-  [ 1.2,   2.1,  -1.9,  -2.0,   0.4],
-  [-1.7,  -1.4,  -2.8,   2.6,  -0.6],
-  [ 0.7,   1.0,   1.2,  -1.3,  -2.7],
-  [-0.9,   0.2,   1.1,   3.5,   2.4],
-  [-0.1,  -2.2,  -3.2,   2.6,  -1.6],
-  [0.0,    0.0,   0.0,   0.0,   0.0],
-];
-let years =  [2001, 2006, 2011, 2016, 2021];
-
-let table = document.getElementById('myTable');
-let header = document.createElement('tr');
-for (const month of ['', 'May', 'Jun', 'Jul', 'Aug', 'Sep']) {
-  let monthTd = document.createElement('td');
-  monthTd.innerHTML = '<strong>' + month + '</strong>';
-  header.appendChild(monthTd);
-}
-table.appendChild(header);
-let rowIndex = 0;
-for (const row of data.slice(0, data.length - 1)) {
-  let tableRow = document.createElement('tr');
-  let yearTd = document.createElement('td');
-  yearTd.innerHTML = '<strong>' + years[rowIndex++] + '</strong>';
-  tableRow.appendChild(yearTd);
-  for (const item of row) {
-    let td = document.createElement('td');
-    td.innerHTML = item.toFixed(1);
-    tableRow.appendChild(td);
-  }
-  table.appendChild(tableRow);
-}
-
-const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: years,
-      datasets: [{
-          label: 'May',
-          data: data[0],
-          backgroundColor: '#8CCB65',
-          borderColor: '#8CCB65',
-      },
-      {
-          label: 'Jun',
-          data: data[1],
-          backgroundColor: '#F6EC6B',
-          borderColor: '#F6EC6B',
-      },
-      {
-          label: 'Jul',
-          data: data[2],
-          backgroundColor: '#F6B054',
-          borderColor: '#F6B054',
-      },
-      {
-          label: 'Aug',
-          data: data[3],
-          backgroundColor: '#E3907B',
-          borderColor: '#E3907B',
-      },
-      {
-          label: 'Sept',
-          data: data[4],
-          backgroundColor: '#F689D1',
-          borderColor: '#F689D1',
-      },
-      {
-          label: 'Normal',
-          data: data[5],
-          backgroundColor: 'black',
-          borderColor: 'black',
-      },
-    ]
-  },
-  options: {
-    responsive: true,
-  }
-});
-</script>
 
 </body>
 

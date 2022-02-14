@@ -147,10 +147,10 @@ ABREngine.Instance.RegisterDataImpression(ground);
       </section>
 
       <section>
-        <h2>New Concepts: ABREngine</h2>
+        <h2>New Concepts: ABR Engine</h2>
         <p>Okay, so what's this <code>ABREngine.Instance</code> thing?</p>
 
-        <p class="fragment">Singleton object to construct visualizations</p>
+        <p class="fragment">Singleton object to construct visualizations:<br> <em>only ONE instance across the entire program</em></p>
 
         <pre class="fragment csharp"><code data-trim>
           // Example: Load a colormap
@@ -159,6 +159,35 @@ ABREngine.Instance.RegisterDataImpression(ground);
           ColormapVisAsset cmap =
               ABREngine.Instance.VisAssets
                   .LoadVisAsset&lt;ColormapVisAsset&gt;(uuid);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>New Concepts: ABR Engine</h2>
+        <p><code>ABREngine.Instance</code> singleton helpful instance fields:</p>
+        <ul>
+          <li class="fragment"><code>ABREngine.Instance.VisAssets</code>: <p class="detail">Property for loading and accessing VisAssets</p></li>
+          <li class="fragment"><code>ABREngine.Instance.Data</code>: <p class="detail">Property for loading and accessing data</p></li>
+          <li class="fragment"><code>ABREngine.Instance.RegisterDataImpression()</code>: <p class="detail">Method for adding data impression to the engine</p></li>
+          <li class="fragment"><code>ABREngine.Instance.Render()</code>: <p class="detail">Method for displaying your vis to the screen!</p></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>New Concepts: Generics</h2>
+        <p>What about all these &lt;&gt;s?</p>
+        <p><code>... .VisAssets.LoadVisAsset&lt;ColormapVisAsset&gt;</code></p>
+        <p class="fragment"><em>Handles different types, for example:</em></p>
+        <pre class="fragment csharp"><code data-trim data-line-numbers="4-6|7-9">
+          Guid uuid1 = new Guid("5a761a72-8bcb-11ea-9265-005056bae6d8");
+          Guid uuid2 = new Guid("90c0a982-885c-11ec-97ef-0242ac110002");
+
+          ColormapVisAsset cmap =
+              ABREngine.Instance.VisAssets
+                  .LoadVisAsset&lt;ColormapVisAsset&gt;(uuid);
+          SurfaceTextureVisAsset cmap =
+              ABREngine.Instance.VisAssets
+                  .LoadVisAsset&lt;SurfaceTextureVisAsset&gt;(uuid);
         </code></pre>
       </section>
 
@@ -193,6 +222,12 @@ KeyData pointsKD =
                   <li>Surface: triangles of points</li>
                 </ul>
               </li>
+              <li class="fragment">Colors
+                <ul>
+                  <li>RGB, 0.0 - 1.0 floating point</li>
+                  <li><code>new Color(0.0f, 1.0f, 0.0f)</code></li>
+                </ul>
+              </li>
             </ul>
           </div>
           <div class="seven wide column">
@@ -211,18 +246,22 @@ KeyData pointsKD =
         </ul>
       </section>
 
-      <section class="activity">
-        <h2>Putting it together</h2>
-        <p>Let's make a vis!</p>
+      <section>
+        <h2><a href="https://ivlab.github.io/ABREngine-UnityPackage/api/IVLab.ABREngine.ABREngine.html">Read the ABR Engine Docs</a></h2>
       </section>
 
-      <section>
+      <section class="activity">
+        <h2>Putting it together</h2>
+        <p>Let's make a vis with Unity and ABR!</p>
+      </section>
+
+      <!-- <section>
         <h2>Looking ahead:</h2>
         <ul>
           <li>Wednesday: Comparative Visualization</li>
           <li>Sunday: Assignment 4 Due</li>
         </ul>
-      </section>
+      </section> -->
 
     </div>
   </div>
